@@ -1,0 +1,30 @@
+<div class="siderbar-manage-request" ng-controller="siderbarCtrl">
+    <div class="sidebar siderbar-manage-request-item" ng-class="{'open': isSidebarOpen}">
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item" ng-repeat="item in sidebarItemsActive track by $index">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" ng-class="{ 'custom-collapse-button': $index === 2 }"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#{{$index}}" aria-expanded="true"
+                        aria-controls="flush-collapseThree">
+                        {{item.label}}
+                    </button>
+                </h2>
+                <div id="{{$index}}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div ng-if="$index === 0">
+                        <div class="accordion-body" ng-repeat="item in sidebarItemRequest">
+                            <a href="{{item.link}}">{{item.label}}</a>
+                        </div>
+                    </div>
+                    <div ng-if="$index === 1">
+                        <div class="accordion-body" ng-repeat="item in sidebarItemStatus">
+                            <a href="{{item.link}}">{{item.label}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-close-siderbar-manage">
+            <input ng-click="toggleSidebar()" class="btn-close-siderbar btn-primary" type="button" value="<>">
+        </div>
+    </div>
+</div>

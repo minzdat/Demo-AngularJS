@@ -1,0 +1,28 @@
+.card-detail-request{
+    border: none !important; 
+    text-align: start;
+}
+.card-detail-request .card-header{
+    font-weight: 700;
+    font-size: 14px;
+}
+.status-approver-card-waiting{
+    background-color: #2f85ef !important;
+    color: white !important;
+}
+.status-approver-card-approved{
+    background-color: #4ba747 !important;
+    color: white !important;
+}
+.status-approver-card-reject{
+    background-color: #ff3030 !important;
+    color: white !important;
+}
+.info-basic-detail-request{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.info-basic-detail-request p{
+    width: 100%;
+    font-weight: 700; 
+}

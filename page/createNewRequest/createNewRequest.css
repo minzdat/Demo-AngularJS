@@ -1,0 +1,61 @@
+.page-manage-request{
+    margin-left: 255px;
+    transition: margin 0.3s;
+}
+.page-manage-request-open{
+    margin-left: 55px;
+}
+.page-create-new-request{
+    font-size: 14px;
+    padding-right: 50px;
+    padding-left: 5px;
+    padding-bottom: 20px;
+    height: calc(100vh - 108px);
+    width: auto;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.page-create-new-request h2{
+    color: #434343;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: inherit;
+    line-height: 1.1;
+    font-weight: 700;
+}
+.attention-request{
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #130e0e;
+    margin-bottom: 16px;
+    margin-top: 16px;
+}
+.check-radio-create-new{
+    margin-bottom: 30px;
+}
+.upload-attachment-file{
+    margin-top: 20px;
+    width: 350px;
+}
+.send-approver{
+    margin-bottom: 50pxs;
+}
+.send-approver-items{
+    padding-top: 20px;
+}
+.send-approver-items {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px; /* Điều này để cân bằng lề do việc sử dụng các cột */
+}
+
+.send-approver-items .col {
+    flex: 0 0 calc(25% - 20px); /* 25% để có tối đa 4 cột, trừ đi margin */
+    margin: 10px; /* Lề giữa các cột */
+}
+.select-create-new{
+    margin-bottom: 10px;
+}

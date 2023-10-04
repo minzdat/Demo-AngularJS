@@ -1,0 +1,152 @@
+.sidebar {
+  width: 250px; 
+  background-color: rgb(248,248,248);
+  color: white;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  transition: left 0.3s ease; 
+}
+.sidebar.open {
+  left: -200px;
+}
+.btn-close-siderbar-manage{
+  position: absolute;
+  width: 100%;
+  bottom: 38px;  
+}
+/* .siderbar-manage-request{
+  padding-top: 20px;
+} */
+.btn-close-siderbar{
+  width: 100%; 
+  background-color: rgb(0,33,64); 
+  text-align: right;
+  padding: 10px 20px; 
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+.sidebar li {
+  padding: 10px;
+}
+.sidebar a {
+  text-decoration: none;
+  color: black;
+}
+.page-manage-request{
+  margin-left: 255px;
+  transition: margin 0.3s;
+}
+.page-manage-request-open{
+  margin-left: 55px;
+}
+ .content {
+    height: calc(100vh - 200px);
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+  .title-table-request  th{
+    border-top: none !important;
+    position: sticky;
+    top: 0;
+    background-color: #ebeef0;
+    font-weight: 600;
+    color: #a3a6b4;
+    height: 50px;
+    vertical-align: middle !important;
+  }
+  .title-dataTable{
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    background-color: rgb(245,246,250);
+    border-radius: 10px;
+    height: 60px;
+  }
+  .title-dataTable span {
+    font-weight: 200;
+    font-size: 30px;
+  }
+  .filter-data-user-request{
+    width: 500px !important;
+    margin-bottom: none !important;
+    height: 40px;
+    border-radius: 5px;
+    margin-left: 20px;
+    outline: none;
+    border: 1px solid rgb(222, 213, 213);
+  }
+  .footer-manage-request ul{
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+  .btn-filter-manageRequest{
+    margin-left: 300px;
+}
+.dropdown-form-filter{
+  width: 500px;
+  height: fit-content;
+  padding: 20px !important;
+}
+.fix-lable-content{
+  display: flex;
+}
+.fix-lable-content label {
+  width: 35% !important;
+}
+.fix-lable-content input {
+  width: 65%;
+  float: right;
+}
+.fix-lable-content select {
+  width: 65%;
+}
+.createdDate-item{
+  width: 358px;
+  display: contents;
+  text-align: center;
+  vertical-align: middle;
+  align-items: center;
+}
+.createdDate-item label{
+  width: auto !important;
+ text-align: center;
+}
+.createdDate-item input{
+  width: 45% !important;
+}
+.btn-create-new-request{
+  margin-left: 20px;
+}
+.custom-collapse-button::after {
+  display: none;
+}
+.status-request-waiting  {
+  background-color: #2f85ef !important;
+  color: white !important;
+}
+.status-request-rejected  {
+  background-color: #ff3030 !important;
+  color: white !important;
+}
+.status-request-approved  {
+  background-color: #4ba747 !important;
+  color: white  !important;
+}
+.status-request-done  {
+  background-color: #2a5b28 !important;  
+  color: white !important;
+}
+.status-request-canceled  {
+  background-color: #7a7879 !important;
+  color: white !important;
+}
+.status-request-draft  {
+  background-color: #f5ad5f !important;
+  color: white !important;
+}
+
+  

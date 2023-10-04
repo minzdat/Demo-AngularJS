@@ -1,0 +1,17 @@
+<!-- <ul class="list-group">
+    <li ng-repeat="data in dataProduct" class="list-group-item">
+        <label class="form-check-label" for="firstCheckbox">{{data.title}}</label>
+        <span><img src="{{data.thumbnail}}" alt="{{data.description}}" /></span>
+    </li>
+</ul> -->
+<table class="table">
+    <tbody>
+        <tr ng-repeat="data in dataProduct track by $index">
+            <th scope="row">{{$index + 1}}</th>
+            <td>{{data.brand}}</td>
+            <td>{{data.title}}</td>
+            <td><img width="200" height="auto" src="{{data.thumbnail}}" alt="{{data.description}}" /></td>
+            <td>{{data.description}}</td>
+        </tr>
+    </tbody>
+</table>

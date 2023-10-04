@@ -1,0 +1,172 @@
+<div ng-include="'/Components/siderbar/siderbar.html'"></div>
+<div ng-include="'/Components/menu/menu.html'"></div>
+<div class="page-create-new-request page-manage-request" ng-class="{'page-manage-request-open': isSidebarOpen}">
+    <h2>CAR BOOKING REQUEST</h2>
+    <div class="container text-center">
+        <div class="row align-items-center">
+            <div class="col">
+                <div class="form-floating">
+                    <input value="{{SenderUSer}}" readonly style="cursor: not-allowed;" type="text" class="form-control"
+                        id="floatingReason" placeholder="Reason">
+                    <label for="floatingReason">Applicant <span style="color: red;"> *</span></label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating">
+                    <select class="form-select select-create-new" id="floatingSelectDepartment"
+                        ng-model="selectedDepartment" ng-change="handleChangeDepartmentId(selectedDepartment)">
+                        <option value="{{ department.Id }}" ng-repeat="department in Department">
+                            {{ department.Name }}
+                        </option>
+                    </select>
+                    <label for="floatingSelectDepartment">Department <span style="color: red;"> *</span></label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating">
+                    <select ng-model="formData.ReceiverId" ng-change="handleChangeReceiverId(formData.ReceiverId)"
+                        class="form-select select-create-new" id="floatingSelectUser">
+                        <option value="{{user.User.Id}}" ng-repeat="user in User">{{user.User.FullName +' '+
+                            user.User.Email +
+                            ' ' + user.User.JobTitle}}
+                        </option>
+                    </select>
+                    <label for="floatingSelectUser">User <span style="color: red;"> *</span></label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating">
+                    <input
+                        ng-change="handleChangeForm(formData.Mobile, formData.CostCenter, formData.TotalPassengers, formData.PickLocation, formData.Destination, formData.Reason, timeFrom, timeTo, pickTime, formData.ApplyNote)"
+                        ng-model="formData.Mobile" type="text" class="form-control" id="floatingMobile"
+                        placeholder="Mobile">
+                    <label for="floatingMobile">Mobile <span style="color: red;"> *</span></label>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col">
+                <div class="form-floating">
+                    <input
+                        ng-change="handleChangeForm(formData.Mobile, formData.CostCenter, formData.TotalPassengers, formData.PickLocation, formData.Destination, formData.Reason, timeFrom, timeTo, pickTime, formData.ApplyNote)"
+                        ng-model="formData.CostCenter" type="text" class="form-control" id="floatingCostCenter"
+                        placeholder="Cost Center">
+                    <label for="floatingCostCenter">Cost Center <span style="color: red;"> *</span></label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating">
+                    <input
+                        ng-change="handleChangeForm(formData.Mobile, formData.CostCenter, formData.TotalPassengers, formData.PickLocation, formData.Destination, formData.Reason, timeFrom, timeTo, pickTime, formData.ApplyNote)"
+                        ng-model="formData.TotalPassengers" type="text" class="form-control"
+                        id="floatingTotalPassengers" placeholder="Total Passengers">
+                    <label for="floatingTotalPassengers">Total Passengers <span style="color: red;"> *</span></label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating">
+                    <input
+                        ng-change="handleChangeForm(formData.Mobile, formData.CostCenter, formData.TotalPassengers, formData.PickLocation, formData.Destination, formData.Reason, timeFrom, timeTo, pickTime, formData.ApplyNote)"
+                        ng-model="timeFrom" type="datetime-local" class="form-control" id="floatingFrom"
+                        placeholder="From">
+                    <label for="floatingFrom">From <span style="color: red;"> *</span></label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating">
+                    <input
+                        ng-change="handleChangeForm(formData.Mobile, formData.CostCenter, formData.TotalPassengers, formData.PickLocation, formData.Destination, formData.Reason, timeFrom, timeTo, pickTime, formData.ApplyNote)"
+                        ng-model="timeTo" type="datetime-local" class="form-control" id="floatingTo" placeholder="To">
+                    <label for="floatingTo">To <span style="color: red;"> *</span></label>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col">
+                <div class="form-floating">
+                    <input
+                        ng-change="handleChangeForm(formData.Mobile, formData.CostCenter, formData.TotalPassengers, formData.PickLocation, formData.Destination, formData.Reason, timeFrom, timeTo, pickTime, formData.ApplyNote)"
+                        ng-model="pickTime" type="datetime-local" class="form-control" id="floatingPickTime"
+                        placeholder="Pick time">
+                    <label for="floatingPickTime">Pick time <span style="color: red;"> *</span></label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating">
+                    <input
+                        ng-change="handleChangeForm(formData.Mobile, formData.CostCenter, formData.TotalPassengers, formData.PickLocation, formData.Destination, formData.Reason, timeFrom, timeTo, pickTime, formData.ApplyNote)"
+                        ng-model="formData.PickLocation" type="text" class="form-control" id="floatingPickLocation"
+                        placeholder="Pick location">
+                    <label for="floatingPickLocation">Pick location <span style="color: red;"> *</span></label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating">
+                    <input
+                        ng-change="handleChangeForm(formData.Mobile, formData.CostCenter, formData.TotalPassengers, formData.PickLocation, formData.Destination, formData.Reason, timeFrom, timeTo, pickTime, formData.ApplyNote)"
+                        ng-model="formData.Destination" type="text" class="form-control" id="floatingDestination"
+                        placeholder="Destination">
+                    <label for="floatingDestination">Destination <span style="color: red;"> *</span></label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating">
+                    <input
+                        ng-change="handleChangeForm(formData.Mobile, formData.CostCenter, formData.TotalPassengers, formData.PickLocation, formData.Destination, formData.Reason, timeFrom, timeTo, pickTime, formData.ApplyNote)"
+                        ng-model="formData.Reason" type="text" class="form-control" id="floatingReason"
+                        placeholder="Reason">
+                    <label for="floatingReason">Reason <span style="color: red;"> *</span></label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="attention-request">
+        <span>Chú ý: Trường hợp Phòng Hành Chính không đủ xe để đáp ứng yêu cầu điều xe của bộ phận, Phòng Hành Chính đề
+            nghị sắp xếp phương tiện khác thay thế (thuê xe ngoài, hoặc dùng thẻ taxi, Grab,...) và chi phí sẽ hạch toán
+            theo bộ phận yêu cầu.</span>
+    </div>
+    <div class="check-radio-create-new">
+        <div class="form-check form-check-inline">
+            <input
+                ng-change="handleChangeForm(formData.Mobile, formData.CostCenter, formData.TotalPassengers, formData.PickLocation, formData.Destination, formData.Reason, timeFrom, timeTo, pickTime, formData.ApplyNote)"
+                ng-model="formData.ApplyNote" ng-value="true" class="form-check-input" type="radio"
+                name="inlineRadioOptions" id="inlineRadio1">
+            <label class="form-check-label" for="inlineRadio1">Yes</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input
+                ng-change="handleChangeForm(formData.Mobile, formData.CostCenter, formData.TotalPassengers, formData.PickLocation, formData.Destination, formData.Reason, timeFrom, timeTo, pickTime, formData.ApplyNote)"
+                ng-model="formData.ApplyNote" ng-value="false" class="form-check-input" type="radio"
+                name="inlineRadioOptions" id="inlineRadio2">
+            <label class="form-check-label" for="inlineRadio2">No</label>
+        </div>
+    </div>
+    <div class="attachment-file">
+        <b>Attachment(s)</b>
+        <div class="mb-3 upload-attachment-file">
+            <input type="file" class="form-control" aria-label="file example" multiple>
+        </div>
+    </div>
+    <div class="send-approver">
+        <span class="send-approver-label">Send to approvers</span>
+        <div class="row align-items-center send-approver-items">
+            <div class="col" ng-repeat="card in listCardApprover track by $index">
+                <div class="form-floating">
+                    <select class="form-select" id="floatingSelectDepartment" ng-model="selectedApprover[$index]">
+                        <option value="{{approver.Id}}" ng-repeat="approver in listSendApprover">{{approver.FullName +'
+                            '+ approver.Email +' '+
+                            approver.JobTitle}}
+                        </option>
+                    </select>
+                    <label ng-if="card === 'Supervisor' || card === 'Manager'"
+                        for="floatingSelectDepartment">{{card}}</label>
+                    <label ng-if="card !== 'Supervisor' && card !== 'Manager'" for="floatingSelectDepartment">Approver
+                        {{$index +1}}</label>
+                </div>
+            </div>
+            <div class="col">
+                <button ng-click="handleAddApprover()" type="button" class="btn btn-primary ">Add</button>
+            </div>
+        </div>
+    </div>
+</div>

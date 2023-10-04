@@ -1,0 +1,7 @@
+.menu-page{
+    margin-left: 255px;
+    transition: margin 0.3s;
+}
+.menu-page-open{
+    margin-left: 55px;
+}

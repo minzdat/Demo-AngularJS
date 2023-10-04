@@ -1,0 +1,93 @@
+<div class="page-todo-app">
+    <div class="part">
+        <div style="font-size: 1.5rem; margin-bottom: 15px;" class="part-heading">User Managenment</div>
+        <div class="page-todo-app-btn-all">
+            <input ng-model="searching" class="form-control input-search-filter-data" placeholder="Search..."
+                type="text" name="search" size="50"><br>
+            <button ng-show="isHidden" ng-click="showAddUser()" class="btn btn-primary page-btn" type="button">Add
+                User</button>
+            <button ng-show="isShow" ng-click="showAddUser()" class="btn btn-primary page-btn" type="button">Hidden
+                Form</button>
+        </div>
+        <div class="part-body">
+            <table class="table table-data-user">
+                <thead>
+                    <tr class="table-data-title">
+                        <th scope="col" ng-repeat='col in columns'>{{col}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--Data Add User-->
+                    <tr class="row-data-user" ng-repeat="user in dataList | filter: searching track by $index">
+                        <th class="col-data-user-no" scope="row">{{$index + 1}}</th>
+                        <td class="col-data-user" ng-hide="isShowEdit">{{user.fullname}}</td>
+                        <td class="col-data-user" ng-hide="isShowEdit">{{user.address}}</td>
+                        <td class="col-data-user" ng-hide="isShowEdit">{{user.age}}</td>
+                        <td class="col-data-user" ng-hide="isShowEdit">{{user.email}}</td>
+                        <td class="col-data-user" ng-hide="isShowEdit">{{user.phoneNumber}}</td>
+                        <td class="col-data-user-no" ng-hide="isShowEdit"><button ng-click="editUSer($index)"
+                                class="btn btn-primary" type="button">Edit</button></td>
+                        <td class="col-data-user-no" ng-hide="isShowEdit"><button ng-click="deleteUser($index)"
+                                class="btn btn-primary" type="reset">Delete</button></td>
+                        <!-- Edit User -->
+                        <td class="col-data-user" ng-show="isShowEdit"><input placeholder="Enter fullName"
+                                ng-model="editfullname" class="form-control" type="text" name="fullName" size="50">
+                        </td>
+                        <td class="col-data-user" ng-show="isShowEdit"><input placeholder="Enter address"
+                                ng-model="editaddress" class="form-control" type="text" name="address" size="50">
+                        </td>
+                        <td class="col-data-user" ng-show="isShowEdit"><input placeholder="Enter age" ng-model="editage"
+                                class="form-control" type="text" name="age" size="50"></td>
+                        <td class="col-data-user" ng-show="isShowEdit"><input placeholder="Enter email"
+                                ng-model="editemail" class="form-control" type="text" name="email" size="50">
+                        </td>
+                        <td class="col-data-user" ng-show="isShowEdit"><input placeholder="Enter tel"
+                                ng-model="editphoneNumber" class="form-control" type="text" name="phoneNumber"
+                                size="50">
+                        </td>
+                        <td class="col-data-user-no" ng-show="isShowEdit"><button ng-click="saveEditUser($index)"
+                                class="btn btn-primary" type="button">Save</button></td>
+                        <td class="col-data-user-no" ng-show="isShowEdit"><button ng-click="cancelEditUser($index)"
+                                class="btn btn-primary" type="button">Cancel</button></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--Form Add User Data-->
+    <div ng-show="isShow" class="form-add-user">
+        <form class="form-add-user-content">
+            <fieldset>
+                <legend class="form-add-user-title">Form Add User</legend>
+                <div class="mb-3">
+                    <label for="fullNameId" class="form-label">Enter Fullname: </label>
+                    <input ng-model="fullname" id="fullNameId" class="form-control" placeholder="Enter Fullname"
+                        type="text" name="fullName" size="50"><br>
+                </div>
+                <div class="mb-3">
+                    <label for="addressId" class="form-label">Enter Address: </label>
+                    <input ng-model="address" id="addressId" class="form-control" placeholder="Enter Address"
+                        type="text" name="address" size="50"><br>
+                </div>
+                <div class="mb-3">
+                    <label for="ageId" class="form-label">Enter Age: </label>
+                    <input ng-model="age" id="ageId" class="form-control" placeholder="Enter Age" type="number"
+                        name="age" size="50"><br>
+                </div>
+                <div class="mb-3">
+                    <label for="emailId" class="form-label">Enter Email: </label>
+                    <input ng-model="email" id="emailId" class="form-control" placeholder="Enter Email" type="email"
+                        name="email" size="50"><br>
+                </div>
+                <div class="mb-3">
+                    <label for="phoneNumberId" class="form-label">Enter Tel: </label>
+                    <input ng-model="phoneNumber" id="phoneNumberId" class="form-control"
+                        placeholder="Enter Phone Number" type="tel" name="phoneNumber" size="50"><br>
+                </div>
+                <button ng-click="addUser()" class="btn btn-primary" type="button">Add user</button>
+                <button ng-click="resetUser()" class="btn btn-primary" type="reset">Reset</button>
+            </fieldset>
+        </form>
+    </div>
+</div>

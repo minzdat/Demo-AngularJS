@@ -1,0 +1,154 @@
+<div ng-include="'/Components/siderbar/siderbar.html'"></div>
+<div ng-include="'/Components/menu/menu.html'"></div>
+<div class="page-create-new-request page-manage-request" ng-class="{'page-manage-request-open': isSidebarOpen}">
+    <div class="info-basic-detail-request">
+        <p>Request Code: {{detailRequest.RequestCode}}</p>
+        <p>Create Date: {{detailRequest.Created}}</p>
+        <p>Status: {{detailRequest.Status}}</p>
+    </div>
+    <h2>CAR BOOKING REQUEST</h2>
+    <div class="container text-center">
+        <div class="row align-items-center">
+            <div class="col">
+                <div class="card border-dark card-detail-request">
+                    <div class="card-header">Applicant</div>
+                    <div class="card-body">
+                        <p class="card-text">{{detailRequest.SenderUser.FullName}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-dark card-detail-request">
+                    <div class="card-header">Department</div>
+                    <div class="card-body">
+                        <p class="card-text">{{detailRequest.Department.Name}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-dark card-detail-request">
+                    <div class="card-header">User</div>
+                    <div class="card-body">
+                        <p class="card-text">{{detailRequest.ReceiverUser.FullName}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-dark card-detail-request">
+                    <div class="card-header">Mobile</div>
+                    <div class="card-body">
+                        <p class="card-text">{{detailRequest.Mobile}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col">
+                <div class="card border-dark card-detail-request">
+                    <div class="card-header">Cost Center</div>
+                    <div class="card-body">
+                        <p class="card-text">{{detailRequest.CostCenter}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-dark card-detail-request">
+                    <div class="card-header">Total Passengers</div>
+                    <div class="card-body">
+                        <p class="card-text">{{detailRequest.TotalPassengers}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-dark card-detail-request">
+                    <div class="card-header">From</div>
+                    <div class="card-body">
+                        <p class="card-text">{{detailRequest.UsageFrom}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-dark card-detail-request">
+                    <div class="card-header">To</div>
+                    <div class="card-body">
+                        <p class="card-text">{{detailRequest.UsageTo}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col">
+                <div class="card border-dark card-detail-request">
+                    <div class="card-header">Pick time</div>
+                    <div class="card-body">
+                        <p class="card-text">{{detailRequest.PickTime}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-dark card-detail-request">
+                    <div class="card-header">Pick location</div>
+                    <div class="card-body">
+                        <p class="card-text">{{detailRequest.PickLocation}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-dark card-detail-request">
+                    <div class="card-header">Destination</div>
+                    <div class="card-body">
+                        <p class="card-text">{{detailRequest.Destination}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-dark card-detail-request">
+                    <div class="card-header">Reason</div>
+                    <div class="card-body">
+                        <p class="card-text">{{detailRequest.Reason}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="attention-request">
+        <span>Chú ý: Trường hợp Phòng Hành Chính không đủ xe để đáp ứng yêu cầu điều xe của bộ phận, Phòng Hành Chính đề
+            nghị sắp xếp phương tiện khác thay thế (thuê xe ngoài, hoặc dùng thẻ taxi, Grab,...) và chi phí sẽ hạch toán
+            theo bộ phận yêu cầu.</span>
+    </div>
+    <div class="check-radio-create-new">
+        <div class="form-check form-check-inline">
+            <input ng-model="detailRequest.ApplyNote" ng-value="true" class="form-check-input" type="radio"
+                name="inlineRadioOptions" id="inlineRadio1">
+            <label class="form-check-label" for="inlineRadio1">Yes</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input ng-model="detailRequest.ApplyNote" ng-value="false" class="form-check-input" type="radio"
+                name="inlineRadioOptions" id="inlineRadio2">
+            <label class="form-check-label" for="inlineRadio2">No</label>
+        </div>
+    </div>
+    <div class="attachment-file">
+        <b>Attachment(s)</b>
+        <div class="mb-3 upload-attachment-file">
+            <input type="file" class="form-control" aria-label="file example" multiple>
+        </div>
+    </div>
+    <div class="send-approver">
+        <span class="send-approver-label">Send to approvers</span>
+        <div class="row align-items-center send-approver-items">
+            <div class="col" ng-repeat="workflow in workflowData track by $index">
+                <div class="card">
+                    <div class="card-header"
+                        ng-class="workflow.Status === 'Waiting for approval' ? 'status-approver-card-waiting': (workflow.Status === 'Approved' ? 'status-approver-card-approved' : 'status-approver-card-reject')">
+                        {{workflow.Status}}</div>
+                    <div class="card-body">
+                        <h6 ng-if="workflow.Position !== null" class="card-title">{{workflow.Position}}</h6>
+                        <h6 ng-if="workflow.Position === null" class="card-title">Approver {{$index}}</h6>
+                        <p class="card-text">{{workflow.User.FullName}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

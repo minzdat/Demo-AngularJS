@@ -1,0 +1,115 @@
+<div ng-include="'/Components/siderbar/siderbar.html'"></div>
+<div class="page-manage-request" ng-class="{'page-manage-request-open': isSidebarOpen}">
+    <div class="title-dataTable">
+        <span>CAR BOOKING</span>
+        <input ng-model="filterDataUSer" class="filter-data-user-request" placeholder="Search..." type="text"
+            name="filterDataUSer" size="50"><br>
+        <!--Dropdown filter-->
+        <div class="dropdown" style="width: max-content;">
+            <button type="button" class="btn-filter-manageRequest btn btn-primary dropdown-toggle"
+                data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                Filter
+            </button>
+            <form class="dropdown-menu dropdown-form-filter">
+                <div>
+                    <h5>Filter</h5>
+                    <button ng-click="handdleApplyFilter(requestCode, senderId, status, fromDate, toDate)" type="submit"
+                        class="btn btn-primary">Apply</button>
+                    <button ng-click="handdleClearFilter(fromDate, toDate)" type="submit"
+                        class="btn btn-primary">Clear</button>
+                </div>
+                <hr>
+                <div class="fix-lable-content">
+                    <label for="RequestCode" class="form-label">Request Code: </label>
+                    <input ng-model="requestCode" type="text" class="form-control" id="RequestCode"
+                        placeholder="Key words">
+                </div>
+                <label class="form-label">Create Date: </label>
+                <div class="fix-lable-content">
+                    <div class="createdDate-item">
+                        <label for="createDateFrom">From: </label><input ng-model="fromDate" type="date"
+                            class="form-control" id="createDateFrom">
+                        <label for="createDateTo">To: </label><input ng-model="toDate" style="margin-left: 5px;"
+                            type="date" class="form-control" id="createDateTo">
+                    </div>
+                </div>
+                <div class="fix-lable-content">
+                    <label for="CreateBy" class="form-label">Create By: </label>
+                    <select style="margin-bottom: 10px;" id="CreateBy" class="form-select" ng-model="senderId">
+                        <option value="">All Request</option>
+                        <option ng-value="data.Id" ng-repeat="data in dataCreatedBy">{{data.LastName + ' '
+                            + data.FirstName}}
+                        </option>
+                    </select>
+                </div>
+                <div class="fix-lable-content">
+                    <label for="Status" class="form-label">Status: </label>
+                    <select ng-model="status" style="margin-bottom: 10px;" id="Status" class="form-select  ">
+                        <option value="">All Request</option>
+                        <option ng-repeat="status in statusRequest">{{status}}</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div>
+            <button type="button" class=" btn btn-primary btn-create-new-request">
+                <a class="nav-link change-menu-page" aria-current="page" href="#!createNew">Create New</a>
+            </button>
+        </div>
+    </div>
+    <div class="content">
+        <table class="table">
+            <thead>
+                <tr class="title-table-request">
+                    <th ng-repeat="title in titleTable">{{title}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="dataUser in dataUserRequest | filter: filterDataUSer">
+                    <td><a class="nav-link change-menu-page" aria-current="page"
+                            href="{{'#!detailRequest/' + dataUser.Id}}">{{dataUser.RequestCode}}</a></td>
+                    <td><a class="nav-link change-menu-page" aria-current="page"
+                            href="{{'#!detailRequest/' + dataUser.Id}}">{{dataUser.Department.Name}}</a></td>
+                    <td><a class="nav-link change-menu-page" aria-current="page"
+                            href="{{'#!detailRequest/' + dataUser.Id}}">{{dataUser.SenderUser.FullName}}</a></td>
+                    <td><a class="nav-link change-menu-page" aria-current="page"
+                            href="{{'#!detailRequest/' + dataUser.Id}}">{{dataUser.ReceiveUser.FullName}}</a></td>
+                    <td>
+                        <a class="nav-link change-menu-page" aria-current="page"
+                            href="{{'#!detailRequest/' + dataUser.Id}}">
+                            <span title="{{dataUser.Status}}"
+                                ng-class="dataUser.Status === 'Waiting for approval' ?  'status-request-waiting' : (dataUser.Status === 'Approved' ?  'status-request-approved' : (dataUser.Status === 'Done' ?  'status-request-done' :(dataUser.Status === 'Rejected' ?  'status-request-rejected': (dataUser.Status === 'Draft' ?  'status-request-draft' : 'status-request-canceled'))))">
+                                {{dataUser.Created|date:'yyyy-MM-dd HH:mm:ss' }}
+                            </span>
+                        </a>
+                    </td>
+                    <td> <a class="nav-link change-menu-page" aria-current="page"
+                            href="{{'#!detailRequest/' + dataUser.Id}}">
+                            {{dataUser.UsageFrom | date:'yyyy-MM-dd HH:mm:ss'}}</a></td>
+                    <td> <a class="nav-link change-menu-page" aria-current="page"
+                            href="{{'#!detailRequest/' + dataUser.Id}}">
+                            {{dataUser.UsageTo | date:'yyyy-MM-dd HH:mm:ss'}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="footer-pagination-page">
+        <footer class="footer-manage-request">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href=""
+                            ng-click="handdlePagination($index, 'previousPage')">Previous</a></li>
+                    <li ng-repeat='pagination in paginationPage track by $index'
+                        ng-class="page === $index + 1 ? 'page-item active' : 'page-item'">
+                        <a href="" ng-click="handdlePagination($index + 1, 'numberPage')"
+                            class="page-link">{{pagination}}
+                        </a>
+                    <li>
+                    <li class="page-item"><a class="page-link" href=""
+                            ng-click="handdlePagination($index, 'nextPage')">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+</div>

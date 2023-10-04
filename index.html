@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="manageUser">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage User</title>
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/page/home/home.css">
+    <link rel="stylesheet" href="/page/manageUser/manageUSer.css">
+    <link rel="stylesheet" href="/page/login/login.css">
+    <link rel="stylesheet" href="/page/manageRequest/manageRequest.css">
+    <link rel="stylesheet" href="/page/createNewRequest/createNewRequest.css">
+    <link rel="stylesheet" href="/page//detailRequest/detailRequest.css">
+    <link rel="stylesheet" href="/Components/menu/menu.css">
+</head>
+
+<body>
+    <ul class="nav nav-tabs menu-page-manageUser" ng-controller="indexCtrl">
+        <li class="nav-item " ng-repeat="menu in menus">
+            <a ng-click="handleChangePage()" class="nav-link change-menu-page" aria-current="page"
+                href="{{menu.url}}">{{menu.title}}</a>
+        </li>
+    </ul>
+
+    <div ng-view></div>
+
+    <!--Import Bootstrap 5.3.1-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!--CDN angularjs-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+    <!--Import controller angurlarjs-->
+    <script src="/index.js"></script>
+    <script src="/sharedService.js"></script>
+
+    <script src="/page/home/homeCtrl.js"></script>
+    <script src="/page/manageUser/manageUser.js"></script>
+    <script src="/page/login/login.js"></script>
+    <script src="/page/apiProducts/apiProducts.js"></script>
+    <script src="/page/manageRequest/manageRequest.js"></script>
+    <script src="/page/createNewRequest/createNewRequest.js "></script>
+    <script src="/page/detailRequest/detailRequest.js "></script>
+
+    <script src="/Components/siderbar/siderbar.js"></script>
+    <script src="/Components/menu/menu.js"></script>
+
+</body>
+
+</html>

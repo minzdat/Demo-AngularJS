@@ -1,0 +1,94 @@
+/* Định dạng gốc cho form */
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Định dạng cho các phần tử input và label */
+.form-label {
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Định dạng cho nút Submit */
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Định dạng cho ô checkbox */
+.form-check-input {
+  margin-right: 5px;
+}
+
+/* Định dạng cho văn bản dưới ô input */
+.form-text {
+  color: #777;
+}
+
+/* Tùy chỉnh vị trí nút Submit */
+.btn-primary {
+  display: block;
+  margin: 10px auto;
+}
+/* Định dạng gốc cho form */
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Định dạng cho các phần tử input và label */
+.form-label {
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Định dạng cho nút Submit */
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Định dạng cho ô checkbox */
+.form-check-input {
+  margin-right: 5px;
+}
+
+/* Định dạng cho văn bản dưới ô input */
+.form-text {
+  color: #777;
+}
+
+/* Tùy chỉnh vị trí nút Submit */
+.btn-primary {
+  display: block;
+  margin: 10px auto;
+}
